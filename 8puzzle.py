@@ -97,7 +97,7 @@ class Puzzle():
             current = frontier.get()
             current_cost, current_path, current_uid, current_state = current[1:]
             if current_uid == goal_uid:
-                return ("Move tiles: " + current_path)
+                return ("Move tiles: " + current_path)  #return path when goal state reached
             if current_uid in visited_states:
                 continue
             visited_states.add(current_uid)
@@ -141,7 +141,11 @@ def main():
         else:
             result.append(sub)
             sub=[]
-          
+            
+    #return output to a file
+    orig_stdout = sys.stdout  
+    f = open('output.txt', 'w')
+    sys.stdout = f         
     #print possible path using astar search        
     for board in result:
        puzzle = Puzzle(board)
@@ -154,6 +158,8 @@ def main():
        else:
            print("\nNot solvable")
            print("-" * 60)
-           
+    sys.stdout = orig_stdout
+    f.close()
+    
 if __name__ == '__main__':
     main()
