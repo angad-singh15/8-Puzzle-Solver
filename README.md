@@ -3,7 +3,7 @@
 
 An 8-puzzle is a 3x3 grid of tiles, numbered 1-8, with the last square in the grid being empty.  A tile can be slid into the blank spot, thus changing the configuration of the puzzle.  For example,
 ```
-2   4  7
+2  4  7
 1  3 
 5  6  8
 ```
